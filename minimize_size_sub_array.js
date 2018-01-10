@@ -23,6 +23,7 @@ Mental Model
   Two pointers - call them lead and follow
   Lead pointer runs until a condition X
   Then Follow pointer chases lead until Condition Y
+  Do something within this window
 
   Plugging this into this problem (algorithm):
     Lead pointer runs until the sum of follow to lead is greater than target.
