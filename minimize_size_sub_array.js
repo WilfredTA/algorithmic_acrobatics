@@ -25,6 +25,20 @@ Two Pointers Algorithm
     Increment j
     If sum is equal to target value, return the difference between index i and j
 
+
+    Why it works:
+      Every time we add an element to sum, we check if sum is now greater than the target value
+      If it is, we know that the current set of elements that was used to compute sum is too large, so we
+      iterate from the beginning of array, subtracting each value until sum is no longer larger than target value.
+      Whenever this happens, we then check if sum is equivalent to target value (since we now know it is, at the very least,
+      not larger than target value). If it is, then we can store the current start and end indices since they are the shortest
+      range thus far. We then continue this process until we have touched every element in the array.
+
+      Why it's O(N)
+        The outer loop touches every number in the array, giving it an O(N) runtime.
+        In a worst case scenario, the internal while loop is also O(N), hitting every number once.
+        So, in a worst case scenario we observe 2N operations on an array with N cells, which simplifies to O(N)
+
 */
 
 const minSubArrayLen = (s, nums) => {
