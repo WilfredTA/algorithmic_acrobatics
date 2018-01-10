@@ -18,12 +18,29 @@ Naive brute force algorithm:
   break if k > length of array
 
 
-Two Pointers Algorithm
-  For each element `i` in array, set sum += i
-    If sum is larger than target value, then set j = 0
-    Remove the value of array[j] from sum as long as sum is larget than target value
-    Increment j
-    If sum is equal to target value, return the difference between index i and j
+
+Mental Model
+  Two pointers - call them lead and follow
+  Lead pointer runs until a condition X
+  Then Follow pointer chases lead until Condition Y
+
+  Plugging this into this problem (algorithm):
+    Lead pointer runs until the sum of follow to lead is greater than target.
+    Follow pointer runs until the sum of follow to lead is less than or equal to target
+      Reason:
+        When lead stops, we know for sure that the nums from follow to lead exceeds the target, so
+        if a window between them exists with numbers that sum to target, it we can now find it
+
+        When follow chases lead, it will do so until the sum between lead and follow is no longer greater than target. Therefore
+        it is either less than or equal to. If it is less than, then we know there are no contiguous numbers that sum to the target.
+        Why do we know this?
+        This lead follow approach does this:
+        When lead runs, it expands contiguous sub array into a window
+        When follow chases, it contracts that contiguous sub array into a smaller window:
+        [1,2,3,4]
+        Lead gets: [1], [1,2], [1,2,3]
+        Follow gets: [1,2,3], [2,3], [3]
+
 
 
     Why it works:
@@ -60,7 +77,6 @@ const minSubArrayLen = (s, nums) => {
       end = i;
     }
   }
-
   return [start, end]
 }
 
