@@ -62,30 +62,30 @@ const minSubArrayLen = (s, nums) => {
   const max = nums.length;
   let sum = 0;
   let j = 0;
-  var start=0;
-  var end=0;
-  var answer = 0;
+  let start=0;
+  let end=0;
+  let answer = 0;
 
   for (let i = 0; i < nums.length; i++){
     sum += nums[i]
-    
+
     while (sum - nums[j] >= s){
       sum = sum - nums[j];
       j++;
     }
-    
+
     if (sum >= s) {
       start = j;
       end = i;
-      
+
       if (end - start < answer || answer === 0){
-       answer = end - start + 1; 
+       answer = end - start + 1;
       }
     }
   }
 
  return answer
-  
+
 }
 
 console.log(minSubArrayLen(7, [2,3,1,2,4,2,1,6]))
