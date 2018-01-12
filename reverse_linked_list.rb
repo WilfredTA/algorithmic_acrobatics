@@ -4,7 +4,7 @@ def reverse_list(head)
    return nil if head.nil?
    return head if head.next.nil?
 
-   dummy, dummy.next = ListNode.new(0), head
+   dummy, dummy.next = Node.new(0), head
    prev, curr, n = dummy, head, head.next
 
 
