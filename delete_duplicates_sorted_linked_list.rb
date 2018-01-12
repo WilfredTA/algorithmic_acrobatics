@@ -6,6 +6,9 @@
 
 
 
+
+
+#First Version
 def delete_duplicates(head)
   return head if head.nil?
   return head if head.next.nil?
@@ -27,6 +30,26 @@ def delete_duplicates(head)
     end
     current = n
     n = n.next
+  end
+  head
+end
+
+
+# Refactored Version
+def delete_duplicates(head)
+  return head if head.nil?
+  return head if head.next.nil?
+  n = head.next
+  current = head
+  
+  while n != nil do
+    if current.val == n.val
+      n = n.next
+      current.next = n
+    else
+      current = n
+      n = n.next
+    end
   end
   head
 end
