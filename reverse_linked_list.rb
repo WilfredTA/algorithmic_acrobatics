@@ -4,10 +4,14 @@ def reverse_list(head)
    return nil if head.nil?
    return head if head.next.nil?
 
-   dummy, dummy.next = Node.new(0), head
+   dummy, dummy.next = ListNode.new(0), head
    prev, curr, n = dummy, head, head.next
 
+
    while !n.nil? do
+     if curr.next == n
+       curr.next = nil
+     end
      if n.next
       prev = curr
       curr = n
