@@ -9,6 +9,7 @@
 
 
 #First Version
+# Nested while loop and nested conditional expression ( 2 while loops two conditionals)
 def delete_duplicates(head)
   return head if head.nil?
   return head if head.next.nil?
@@ -36,6 +37,7 @@ end
 
 
 # Refactored Version
+# Single while loop single conditional structure
 def delete_duplicates(head)
   return head if head.nil?
   return head if head.next.nil?

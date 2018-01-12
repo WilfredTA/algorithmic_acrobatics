@@ -10,7 +10,7 @@
 def merge_two_lists(l1, l2)
   dummy = ListNode.new(0)
   current = dummy
-  
+
   while !l1.nil? && !l2.nil? do
     if l1.val < l2.val
       current.next = l1
