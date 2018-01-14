@@ -11,12 +11,8 @@
 # The run time is O(N) because no fibonacci number is computer more than once. Rather, before each new computation, an O(1) hash table lookup is performed for the result of the fibonacci call.
 
 
-@memo = {}
+@memo = { 0 => 0, 1 => 1}
 def fibo(n)
-  if n < 2
-    return n
-  end
-  
   if @memo[n]
     return @memo[n]
   else
