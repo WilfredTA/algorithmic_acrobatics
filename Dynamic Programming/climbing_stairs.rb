@@ -62,4 +62,24 @@ def climb_stairs_memo(n, cache={})
 	result
 end
 
+
+# Comparison of recursive solution alone VS. recursive with memoization:
+
+# Example with input of 6
+
+# Regular recursive:
+# The total number of recursive calls is 2 for level 1, 2 * 2 for level 2
+# etc. So, the total number of recursive calls is 2^N: This method runs in 
+# exponential time (very slow).
+
+# Recursion with memoization:
+# If you draw out the recursion tree, you will see that lower values
+# get cached as each layer of the stack returns. Further, one entire
+# side of the tree will only have one node since the value will already
+# be cached from the other side's recursions. Each child node has 2 children,
+# resulting in 2N calls. So, the runtime is O(N).
+
+# Both have a space complexity of O(N) because they use some multiple of N
+# amount of space on each recursive call and they both use N levels in the recursive stack.
+
 	
