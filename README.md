@@ -1,0 +1,2 @@
+# About
+This repo contains many algorithm implementations. Some of these implementations also contain an outline of the mental model I used to solve these problems as well as a space and time complexity analysis
