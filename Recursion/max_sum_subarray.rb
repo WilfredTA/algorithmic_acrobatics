@@ -1,3 +1,4 @@
+# Problem source: https://leetcode.com/problems/word-break/description/
 # Find the maximum Subarray
 # Start with length of 1 and check every subarray with length of 1 and store its max value. Then length of 2, if any subarray sum > current-max, reassign max. Do this up to subarray of length array.length
 
