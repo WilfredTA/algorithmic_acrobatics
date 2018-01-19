@@ -14,6 +14,5 @@ def unique_path(m, n, cache = {})
   if cache[[m, n]]
     return cache[[m,n]]
   end
-  
   cache[[m,n]] = unique_path(m-1, n) + unique_path(m, n-1)
 end
