@@ -70,34 +70,29 @@ p length_of_lis([1,3,6,7,9,4,10,5,6]) # Returns 7 but should return 6
 
 def length_of_lis(nums)
   return 0 if nums.length < 1
-  i = nums.length - 1
-  result = 0
-  while i >= 0 do
-    new_result = lis(nums, i)
-    if new_result > result
-      result = new_result
-    end
-    i -= 1
-  end
-  result
+  lis(nums, nums.length - 1)
 end
 
-def lis(nums, end_idx, new_start = Float::INFINITY)
-  if end_idx == 0
-    return 1
+def lis(nums, end_idx, last_added = Float::INFINITY)
+  if end_idx < 0
+    return 0
   end
   
-  if nums[end_idx] > nums[end_idx - 1] && new_start > nums[end_idx]
-    new_start = nums[end_idx]
-    lis(nums, end_idx - 1, new_start) + 1
-  else
-    lis(nums, end_idx-1, new_start)
+  option1 = 0
+  current_val = nums[end_idx]
+  
+  if nums[end_idx] < last_added
+    option1 = lis(nums, end_idx - 1, current_val) + 1
   end
+   option2 = lis(nums, end_idx-1, last_added)
+  
+  [option1, option2].max
 end
 
 p length_of_lis([10, 9, 2, 5, 3, 7, 101, 18]) # Should be 4
-p length_of_lis([4,10,4,3,8,9]) # Should be 3
+p length_of_lis([4,10,4,3,8,9]) # Returns 4 should return 3
 
 
-p length_of_lis([1,3,6,7,9,4,10,5,6]) # returns 6
+p length_of_lis([1,3,6,7,9,4,10,5,6]) # Returns 7 but should return 6
+
 
