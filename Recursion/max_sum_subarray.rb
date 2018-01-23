@@ -1,6 +1,8 @@
 # Problem source: https://leetcode.com/problems/word-break/description/
 # Find the maximum Subarray
-# Start with length of 1 and check every subarray with length of 1 and store its max value. Then length of 2, if any subarray sum > current-max, reassign max. Do this up to subarray of length array.length
+# Start with length of 1 and check every subarray with length of 1 and store its max value.
+# Then length of 2, if any subarray sum > current-max, reassign max. 
+# Do this up to subarray of length array.length
 
 def max_sum(array)
   max_sum_helper(array, 1, -1.0/0.0)
@@ -17,10 +19,10 @@ def max_sum_helper(array, current_length, max)
   if current_length > array.length
     return max
   end
-  
+
   start_pointer = 0
   end_pointer = current_length - 1
-  
+
   while end_pointer < array.length do
     sum = array[start_pointer..end_pointer].reduce(:+)
     if sum >= max
