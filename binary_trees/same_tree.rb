@@ -4,9 +4,16 @@
 # Two binary trees are considered the same if they are structurally identical
 # and the nodes have the same value.
 
+
+# Traversal
 # Assumption, if every node is visited in the same order, each current_node on one tree
 # should be equivalent to the current node on the other tree AND they should end at the
 # same time
+
+
+# DnC
+# If the roots of the two trees are the same and the left subtree of each tree is
+# equivalent and the right subtree of each tree is equivalent, then the trees are the same
 
 # returns boolean
 def is_same_tree(root1, root2)
