@@ -51,7 +51,7 @@ end
          1
        /   \
       2     3
-    /  \   / \ 
+    /  \   / \
    3    4 4  5
 
 level 1 queue: [1].
@@ -65,7 +65,6 @@ def level_order(root)
   tracker_node = root
   result = []
   return result if root.nil?
-  level = 0
 
 
   while !queue.empty? do
@@ -80,7 +79,6 @@ def level_order(root)
         queue << tracker_node.right
       end
     end
-    level += 1
     result << temp_result
   end
 
