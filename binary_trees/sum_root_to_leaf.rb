@@ -27,7 +27,7 @@
 # First attempt (failing)
 
 
-def sum_numbers(root, accumulator = {val_left: 0})
+def sum_numbers(root, accumulator = {val: 0})
     return 0 if root.nil?
 
     accumulator[:val] = accumulator[:val] * 10 + root.val
