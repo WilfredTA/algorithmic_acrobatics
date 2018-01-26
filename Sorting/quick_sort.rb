@@ -69,7 +69,6 @@ p quicksort(ary, 0, ary.length - 1)
 # Algorithm Analysis:
 
 # Assuming the partition divides the array roughly in half each time, then the
-# Array will be divided in half log N times.
-# But every element in each half is checked on each level. So, for each division,
-# we check N elements. Since there are log N divisions, we do a total of N log N steps
-# O(n log n) where n = number of elements in the array
+# Array will be partitioned log N times.
+# All elements in the array are hit once during each new partition. Meaning we hit
+# N elements log N times for a final time complexity of O(N Log N)
