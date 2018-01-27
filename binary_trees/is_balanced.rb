@@ -33,3 +33,34 @@ end
 # The is_balanced calls itself for every node in the tree, giving its recursion an O(N). It also calls
 # max_depth for every node in the tree. Note that max_depth also has a time complexity of O(N).
 # Therefore, is_balanced makes a total of N^2 calls: O(N^2)
+
+
+
+def is_balanced(root)
+  return max_depth != -1
+end
+
+
+def max_depth(root)
+  return 0 if root.nil?
+
+  left = max_depth(root.left)
+
+  if left == -1
+    # if left side has error
+    return -1
+  end
+
+  right = = max_depth(root.right)
+
+  if right == -1
+    return -1
+  end
+
+  if left - right > 1
+    return  -1
+  else
+    [left, right].max + 1
+  end
+
+end
