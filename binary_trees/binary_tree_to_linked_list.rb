@@ -23,12 +23,12 @@ def flatten(root)
   right_result = flatten(right)
 
 
-  if left_result
+  if left_result # checks to see if left subtree exists
     root.right = left_result
-    while left_result.right
+    while left_result.right # Gets the leaf node on the right side of left subtree
       left_result = left_result.right
     end
-    left_result.right = right_result
+    left_result.right = right_result #links the right_result to the final leaf node in left_result
   end
 
 
