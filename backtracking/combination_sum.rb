@@ -89,9 +89,9 @@ end
 
 def sum_helper(candidates, target, solution, result, start_idx)
   curr_sum = solution.reduce(:+)
-  if  curr_sum == target
+  if curr_sum && curr_sum > target
+  elsif curr_sum == target
     result << solution.clone
-  elsif curr_sum && curr_sum > target
   else
 
     (start_idx..candidates.length-1).each do |idx|
@@ -101,3 +101,5 @@ def sum_helper(candidates, target, solution, result, start_idx)
     end
   end
 end
+
+p combination_sum([2,3,7], 7)
