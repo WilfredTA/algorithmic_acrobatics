@@ -70,10 +70,34 @@ end
 # For some arrangement of numeric values, the arrangement cannot appear
 # more than once in the result array, where an arrangement is an unordered list.
 # e.g., the arrangement represented by [3,2,2] is the same as [2,3,2]
+# Need a more efficient way to PREVENT any combination's permutations from being added to
+# the results
 
-# Need a way to prevent arrangements from being placed in the result array
-# that does not use the has_combination bottleneck
+# Since the imput array of numbers does not contain duplicates, at each root of the
+# decision tree, we can make sure that the element at the index of that root will not
+# only show up in THAT root's subtrees and not the subtrees of the roots formed at the next elements:
 
-# Algorithm:
-#
 # Time complexity:
+
+def combination_sum(candidates, target)
+  result = []
+  solution = []
+  sum_helper(candidates, target, solution, result, 0)
+  result
+end
+
+
+def sum_helper(candidates, target, solution, result, start_idx)
+  curr_sum = solution.reduce(:+)
+  if  curr_sum == target
+    result << solution.clone
+  elsif curr_sum && curr_sum > target
+  else
+
+    (start_idx..candidates.length-1).each do |idx|
+      solution << candidates[idx]
+      sum_helper(candidates, target, solution, result, idx)
+      solution.pop
+    end
+  end
+end
