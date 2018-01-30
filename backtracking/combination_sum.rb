@@ -1,10 +1,19 @@
 # Problem Source https://leetcode.com/problems/combination-sum/description/
 
-# Currently runs too slowly
+# A valid combination is any combinatin of numeric values in the input that add up to
+# the target.
 
-# The logic to handle same-cobinations of numbers but in different order
-# is placed in the dead end logic rather than the branching logic
+# A combination can include the numeric value located at the same index multiple times
+# in other words, for an input array [1,2,3], combination [1,2,1] is valid
 
+
+# A combination is invalid if it does not add up to the target element or if some arrangement
+# of its numeric values is already included in the results.
+# In other words, if the result array is: [[1,2,2], [2,3]], then [2,2,1] is an invalid combination
+
+# Difference between a combination and a set:
+# A subset cannot be constructed by using a value at a specific index more than once.
+# Given a set [1,2,3], [2,2] is not a valid subset, but it is a valid combination
 
 # Solution 1: Too slow
 # Algorithm:
@@ -66,5 +75,5 @@ end
 # that does not use the has_combination bottleneck
 
 # Algorithm:
-# 
-# Time complexity: 
+#
+# Time complexity:
