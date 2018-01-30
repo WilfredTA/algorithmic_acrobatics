@@ -3,9 +3,10 @@
 # A subset is a set of elments that exists within another set. Subsets do not contain
 # duplicates of the set of which is is a subset.
 
-
-# Passes but runs slowly. The logic that accounts for not adding the same element in twice
-# is to use the index of current branch
+# Rules:
+# A subset may contain a duplicate numeric value, at most, the amount of times
+# the numeric value appears in the input set at DIFFERENT indices.
+# E.g., a [2,2] is NOT a subset of [1,2,3] but it IS a subset of [1,2,2]
 
 
 def subsets_with_dup(nums)
