@@ -7,11 +7,7 @@
 # Passes but runs slowly. The logic that accounts for not adding the same element in twice
 # is to use the index of current branch
 
-# Possible refactor idea:
-# when the recursive call drops after the second level, it can use the top-level's
-# element again because current_idx only prevents duplication of a single element.
-# Instead, we can have a state maintenance of current_indices and only consider elements
-# whose idx is not in current_indices as possible candidates
+
 def subsets_with_dup(nums)
   result = []
   subsets_helper(nums, result, [], 0, nil)
