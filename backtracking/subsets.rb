@@ -1,5 +1,8 @@
 # Problem Source https://leetcode.com/problems/subsets/description/
 
+# A subset is a set of elments that exists within another set. Subsets do not contain
+# duplicates of the set of which is is a subset.
+
 
 # At each level, push element into solution and check if result includes
 # current solution.
