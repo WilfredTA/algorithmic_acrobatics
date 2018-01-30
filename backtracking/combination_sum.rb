@@ -31,10 +31,10 @@ end
 
 
 def has_combination(collection, test)
-  collection = collection.clone.map do |subarr|
+  collection = collection.map do |subarr|
     subarr.sort
   end
-  test = test.clone.sort
+  test = test.sort
 
   collection.include?(test)
 end
