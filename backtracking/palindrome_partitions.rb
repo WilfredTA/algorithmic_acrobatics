@@ -1,3 +1,5 @@
+# Problem source https://leetcode.com/problems/palindrome-partitioning/description/
+
 def partition(s)
     result = []
     partition_helper(s, result, [], 0)
