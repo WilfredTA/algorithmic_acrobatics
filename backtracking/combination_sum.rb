@@ -103,3 +103,41 @@ def sum_helper(candidates, target, solution, result, start_idx)
 end
 
 p combination_sum([2,3,7], 7)
+
+
+
+# Combination sum II
+
+# Same as above, but there can be duplicate values in the array. Further, combinations cannot
+# use the element at the same index more than once, nor can permutations of the same combination
+# be included in the result array
+
+# Since there can be duplicate values, such as [1,7,1], a modified above-solution that prevented
+# an element at an index being used more than once in a single combination would still not work
+# because [1,7,1] would have two solutions: [1,7] and [7,1] since the 1's exist at different indices.
+
+# However, if we sorted the input array: [1,1,7] and then checked the results array for a combination
+# before adding that combination to the results array, then we would notice that [1,7] was in there and
+# when the second [1,7] came about, it would not be added:
+
+# Problem source https://leetcode.com/problems/combination-sum-ii/description/
+def combination_sum2(candidates, target)
+    result = []
+    helper(candidates.sort, target, 0, 0, [], result)
+    result
+end
+
+
+def helper(nums, target, curr_pos, curr_sum, solution, result)
+  if curr_sum == target
+    result << solution.clone if !result.include?(solution)
+  elsif curr_sum > target
+
+  else
+    (curr_pos..nums.length-1).each do |idx|
+      solution << nums[idx]
+      helper(nums, target, idx + 1, curr_sum + nums[idx], solution, result)
+      solution.pop
+    end
+  end
+end
