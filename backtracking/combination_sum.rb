@@ -132,7 +132,7 @@ def helper(nums, target, curr_pos, curr_sum, solution, result)
   if curr_sum == target
     result << solution.clone if !result.include?(solution)
   elsif curr_sum > target
-
+    # Do nothing
   else
     (curr_pos..nums.length-1).each do |idx|
       solution << nums[idx]
