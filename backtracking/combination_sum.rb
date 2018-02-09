@@ -141,3 +141,28 @@ def helper(nums, target, curr_pos, curr_sum, solution, result)
     end
   end
 end
+
+
+# Refactored: don't even take the path if it will make the sum greater than the target
+# Since you only need to branch when curr_sum + next value <= target and since you only Need
+# to solution.pop after a branch, everything can be placed within the if-conditional
+def combination_sum2(candidates, target)
+    result = []
+    helper(candidates.sort, target, 0, 0, [], result)
+    result
+end
+
+
+def helper(nums, target, curr_pos, curr_sum, solution, result)
+  if curr_sum == target
+    result << solution.clone unless result.include?(solution)
+  else
+    (curr_pos..nums.length-1).each do |idx|
+      if curr_sum + nums[idx] <= target
+        solution << nums[idx]
+        helper(nums, target, idx + 1, curr_sum + nums[idx], solution, result)
+        solution.pop
+      end
+    end
+  end
+end
